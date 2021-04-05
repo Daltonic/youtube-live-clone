@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-sidebar',
   template: `
     <div class="sidebar">
-      <app-rows></app-rows>
+      <app-rows selected="true" title="Home" icon="home"></app-rows>
+      <app-rows title="Trending" icon="whatshot"></app-rows>
+      <app-rows title="Subscription" icon="subscriptions"></app-rows>
     </div>
   `,
   styles: [
