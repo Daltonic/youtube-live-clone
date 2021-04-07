@@ -1,0 +1,32 @@
+.mat-card-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.videoCard {
+  margin-bottom: 40px;
+  width: 270px;
+}
+
+.videoCard__thumbnail {
+  height: 140px;
+  width: 250px;
+}
+
+.video__text {
+  margin-top: 10px;
+  padding-right: 30px;
+}
+
+.video__text > h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.video__text > p {
+  font-size: 14px;
+  color: gray;
+}
