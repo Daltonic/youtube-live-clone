@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header.component';
 import { SidebarComponent } from './components/sidebar.component';
 import { StreamsComponent } from './components/streams.component';
 import { RowsComponent } from './components/rows.component'
+import { VideoComponent } from './components/video.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RowsComponent } from './components/rows.component'
     HeaderComponent,
     SidebarComponent,
     StreamsComponent,
-    RowsComponent
+    RowsComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
