@@ -1,5 +1,9 @@
 <div class="videoCard">
   <img class="videoCard__thumbnail" [src]="image" [alt]="channel" />
+  <div *ngIf="live" class="videoCard__indicator">
+    <img src="/assets/access_point.png" alt="">
+    <p>LIVE</p>
+  </div>
   <div class="video__text">
     <h4>{{ title }}</h4>
     <p>{{ channel }}</p>

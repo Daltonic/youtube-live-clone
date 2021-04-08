@@ -9,11 +9,13 @@
 .videoCard {
   margin-bottom: 40px;
   width: 270px;
+  position: relative;
 }
 
 .videoCard__thumbnail {
   height: 140px;
   width: 250px;
+  display: block;
 }
 
 .video__text {
@@ -29,4 +31,26 @@
 .video__text > p {
   font-size: 14px;
   color: gray;
+}
+
+.videoCard__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 25px;
+  top: 110px;
+  padding: 5px;
+  color: white;
+  background-color: rgb(216, 2, 2);
+  border-radius: 4px;
+  height: 15px;
+}
+
+.videoCard__indicator > img {
+  width: 40px;
+}
+
+.videoCard__indicator > p {
+  font-weight: 500;
 }
