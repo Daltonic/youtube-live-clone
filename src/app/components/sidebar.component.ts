@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
     <hr class="sidebar__hr" />
     <app-rows title="Library" icon="video_library"></app-rows>
     <app-rows title="History" icon="history"></app-rows>
-    <app-rows selected="true" live="true" title="Live" icon="pointer"></app-rows>
+    <app-rows selected="true" svg="access_point" title="Live"></app-rows>
     <app-rows title="Your Videos" icon="tv"></app-rows>
     <app-rows title="Watch Later" icon="watch_ater"></app-rows>
     <app-rows title="Liked Vedios" icon="thumb_up_alt_outlined"></app-rows>
