@@ -1,24 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-streams',
   templateUrl: './streams.component.html',
-  styles: [
-    `
-      .streams__title {
-        margin-left: 5px;
-        margin-bottom: 20px;
-      }
-
-      .streams__videos {
-        display: flex;
-        flex-wrap: wrap;
-      }
-    `,
-  ],
+  styleUrls: ['./streams.component.css'],
 })
-export class StreamsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class StreamsComponent {
+  about: boolean = true
 }

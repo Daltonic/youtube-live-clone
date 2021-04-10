@@ -23,7 +23,7 @@ import { Component, OnInit } from '@angular/core';
         border: 0;
         background-color: lightgray;
         margin-top: 10px;
-        margin-bttom: 10px;
+        margin-bottom: 10px;
       }
     `,
   ],
