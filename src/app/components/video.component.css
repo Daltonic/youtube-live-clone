@@ -10,6 +10,7 @@
   margin-bottom: 40px;
   width: 270px;
   position: relative;
+  cursor: pointer;
 }
 
 .videoCard__thumbnail {
