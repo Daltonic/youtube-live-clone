@@ -104,6 +104,10 @@
   margin: 10px 0 40px 0;
 }
 
+.about__wrapper mat-icon {
+  color: #929292;
+}
+
 .about__description a {
   text-decoration: none;
   font-size: 13px;

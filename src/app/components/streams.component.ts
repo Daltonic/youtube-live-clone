@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./streams.component.css'],
 })
 export class StreamsComponent {
-  about: boolean = true
+  about: boolean = false
 }

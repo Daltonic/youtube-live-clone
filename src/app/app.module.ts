@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsComponent } from './events/events.component';
+import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './components/header.component';
 import { SidebarComponent } from './components/sidebar.component';
 import { StreamsComponent } from './components/streams.component';
@@ -17,6 +18,7 @@ import { VideoComponent } from './components/video.component'
   declarations: [
     AppComponent,
     EventsComponent,
+    EventComponent,
     HeaderComponent,
     SidebarComponent,
     StreamsComponent,
