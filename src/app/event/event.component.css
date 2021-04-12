@@ -6,8 +6,91 @@
   flex: 0.2;
 }
 
-.streams {
+.event {
   flex: 0.8;
   background-color: #f9f9f9;
   padding-bottom: 0;
+  display: flex;
+}
+
+.event__left,
+.event__right {
+  padding: 15px;
+}
+
+.event__left,
+.event__right,
+.info__left,
+.info__right {
+  flex: 0.5;
+}
+
+.event__info {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+
+.info__left > h4 {
+  font-weight: 500;
+}
+.info__left > p {
+  font-size: 12px;
+  color: gray;
+  margin-top: 10px;
+}
+
+.info__right {
+  font-size: 10px;
+  color: gray;
+}
+
+.info__right span {
+  margin-right: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.info__icon:hover {
+  color: red;
+}
+
+.__hr {
+  height: 1px;
+  border: 0;
+  background-color: lightgray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mat-card-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.subscribe__btn {
+  color: white;
+  background-color: #c00;
+  border: none;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: large;
+  cursor: pointer;
+}
+
+.event__description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event__data {
+  flex: 0.8;
+}
+
+.event__details {
+  margin: 10px;
 }
