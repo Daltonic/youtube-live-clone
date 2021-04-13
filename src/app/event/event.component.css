@@ -212,6 +212,28 @@
   height: 68%;
 }
 
+.event__videos {
+  margin-top: 10px;
+}
+
+.badge-pills {
+  padding: 10px 0;
+}
+
+.badge-pills > span {
+  background-color: lightgray;
+  color: black;
+  padding: 10px 15px;
+  margin-left: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.badge-pills > span:first-child {
+  background-color: gray;
+  color: white;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
