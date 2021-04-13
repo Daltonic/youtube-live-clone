@@ -14,6 +14,7 @@ import { SidebarComponent } from './components/sidebar.component';
 import { StreamsComponent } from './components/streams.component';
 import { RowsComponent } from './components/rows.component'
 import { VideoComponent } from './components/video.component'
+import { RelatedComponent } from './components/related.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VideoComponent } from './components/video.component'
     SidebarComponent,
     StreamsComponent,
     RowsComponent,
-    VideoComponent
+    VideoComponent,
+    RelatedComponent
   ],
   imports: [
     BrowserModule,
