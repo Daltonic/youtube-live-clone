@@ -15,14 +15,18 @@
 
 .event__left,
 .event__right {
-  padding: 15px;
+  padding: 0 15px;
+  margin: 15px 0;
 }
 
 .event__left,
+.info__left {
+  flex: 0.6;
+}
+
 .event__right,
-.info__left,
 .info__right {
-  flex: 0.5;
+  flex: 0.4;
 }
 
 .event__info {
@@ -85,6 +89,7 @@
 .event__description {
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
 }
 
 .event__data {
@@ -92,5 +97,137 @@
 }
 
 .event__details {
-  margin: 10px;
+  margin: 10px 0;
+}
+
+.event__chat {
+  border: 1px solid lightgray;
+  height: 608px;
+  position: relative;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 15px 25px;
+  border-bottom: 1px solid lightgray;
+}
+
+.chatHeader__left > span:last-child {
+  font-size: 12px;
+}
+
+.chatHeader__left > span {
+  cursor: pointer;
+}
+
+.chatHeader__right > span {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.chatFooter {
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  width: 100%;
+  height: 130px;
+}
+
+.chatFooter__wrapper {
+  display: flex;
+  margin: 15px 20px;
+}
+
+.chatFooter__wrapper > .avatar {
+  margin-right: 10px;
+}
+
+.chatFooter__wrapper > .sendForm {
+  flex: 1;
+}
+
+.sendForm p {
+  color: gray;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.sendForm input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  color: gray;
+}
+
+.sendForm input:focus {
+  outline: none;
+  border-bottom: 3px solid #305fe4;
+}
+
+.chatFooter__btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 20px;
+  color: gray;
+}
+
+.chatFooter__btn > .icon {
+  cursor: pointer;
+}
+
+.mat-card-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.messages {
+  margin: 15px 20px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.message > img {
+  margin-right: 10px;
+}
+
+.message > span > .name {
+  color: gray;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+
+.chatBody {
+  overflow-y: scroll;
+  height: 68%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
