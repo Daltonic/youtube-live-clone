@@ -213,7 +213,7 @@
 }
 
 .event__videos {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .badge-pills {
@@ -224,7 +224,7 @@
   background-color: lightgray;
   color: black;
   padding: 10px 15px;
-  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 25px;
   cursor: pointer;
 }
@@ -232,6 +232,10 @@
 .badge-pills > span:first-child {
   background-color: gray;
   color: white;
+}
+
+.event__related {
+  margin-top: 25px;
 }
 
 /* width */

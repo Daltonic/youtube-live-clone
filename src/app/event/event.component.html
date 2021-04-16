@@ -3,7 +3,11 @@
   <div class="event">
     <div class="event__left">
       <div class="event__player">
-        <youtube-player width="800" height="500" videoId="HabG0k6Ycvw"></youtube-player>
+        <youtube-player
+          width="800"
+          height="500"
+          videoId="HabG0k6Ycvw"
+        ></youtube-player>
       </div>
 
       <div class="event__info">
@@ -43,10 +47,11 @@
           <p>182K subscribers</p>
 
           <p class="event__details">
-            👉Subscribe to Our Youtube Channel: https://Revere.lnk.to/subscribeYT​ 
-            🎼 Learn To Play: https://www.weareworship.com​ 
-            ‎▶ Listen to the full album: http://revere.lnk.to/REVERE​ 
-            🫂Join the online community: https://www.revere.live/
+            👉Subscribe to Our Youtube Channel:
+            https://Revere.lnk.to/subscribeYT​ 🎼 Learn To Play:
+            https://www.weareworship.com​ ‎▶ Listen to the full album:
+            http://revere.lnk.to/REVERE​ 🫂Join the online community:
+            https://www.revere.live/
           </p>
         </div>
         <div>
@@ -66,9 +71,11 @@
           </div>
         </div>
         <div id="messages-container" class="chatBody">
-
           <div class="messages">
-            <div class="message" *ngFor="let n of numSequence(15); let i = index;">
+            <div
+              class="message"
+              *ngFor="let n of numSequence(15); let i = index"
+            >
               <img src="/assets/avatar.jpg" class="mat-card-avatar" />
               <span>
                 <span class="name">darlington gospel</span>
@@ -76,7 +83,6 @@
               </span>
             </div>
           </div>
-
         </div>
         <div class="chatFooter">
           <div class="chatFooter__wrapper">
@@ -85,7 +91,12 @@
             </div>
             <div class="sendForm">
               <p>darlington gospel</p>
-              <input (change)="loggy()" [(value)]="message" type="text" placeholder="Say something...">
+              <input
+                (change)="loggy()"
+                [(value)]="message"
+                type="text"
+                placeholder="Say something..."
+              />
             </div>
           </div>
           <div class="chatFooter__btn">
@@ -101,6 +112,37 @@
           <span class="pill">Live</span>
           <span class="pill">New</span>
         </div>
+      </div>
+
+      <div class="event__related">
+        <app-related
+          title="Become a web developer in 10 minutes | 2019/2020"
+          timestamp="3 days ago"
+          channel="VueJs Ninja"
+          views="2.3M views"
+          image="https://i.ytimg.com/vi/dfB0qmJo1eM/hqdefault_live.jpg"
+          live="true"
+          [routerLink]="['/events', 'videoId']"
+        ></app-related>
+
+        <app-related
+          title="Singapor Premier League"
+          timestamp="1 days ago"
+          channel="1 Play Sport"
+          views="100k views"
+          image="https://i.ytimg.com/vi/BaoYEHeLqmU/hqdefault_live.jpg"
+          live="true"
+          [routerLink]="['/events', 'videoId']"
+        ></app-related>
+
+        <app-related
+          title="Best Easter Worship Song 2020"
+          timestamp="Streamed 1 day ago"
+          channel="Best Worship Song"
+          views="293k views"
+          image="https://i.ytimg.com/vi/lKNqt-mF5MM/hqdefault.jpg"
+          [routerLink]="['/events', 'videoId']"
+        ></app-related>
       </div>
     </div>
   </div>

@@ -11,7 +11,6 @@ import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
 import { HeaderComponent } from './components/header.component';
 import { SidebarComponent } from './components/sidebar.component';
-import { StreamsComponent } from './components/streams.component';
 import { RowsComponent } from './components/rows.component'
 import { VideoComponent } from './components/video.component'
 import { RelatedComponent } from './components/related.component'
@@ -23,7 +22,6 @@ import { RelatedComponent } from './components/related.component'
     EventComponent,
     HeaderComponent,
     SidebarComponent,
-    StreamsComponent,
     RowsComponent,
     VideoComponent,
     RelatedComponent
