@@ -8,11 +8,12 @@
         width="200"
       />
       <form class="login-form">
+        <input type="text" placeholder="Fullname" />
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
-        <button>login</button>
+        <button>Create</button>
         <p class="message">
-          Not registered? <a [routerLink]="['/register']">Create an account</a>
+          Already registered? <a [routerLink]="['/login']">Sign In</a>
         </p>
       </form>
     </div>
