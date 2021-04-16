@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() { }
+  constructor(private auth: AngularFireAuth, private route: Router) {}
 
-  ngOnInit(): void {
+  public submit(form): void {
+    const email = form.email;
+    const password = form.password;
+
+    this.auth
+      .signInWithEmailAndPassword(email, password)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+      // .then(() => this.route.navigate(['']));
   }
-
 }

@@ -7,10 +7,32 @@
         alt="youtube logo"
         width="200"
       />
-      <form class="login-form">
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>login</button>
+      <form
+        class="login-form"
+        #loginForm="ngForm"
+        (ngSubmit)="submit(loginForm.value)"
+      >
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          minlength="3"
+          ngModel
+          name="email"
+          #email="ngModel"
+          id="email"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          minlength="6"
+          ngModel
+          name="password"
+          #password="ngModel"
+          id="password"
+        />
+        <button type="submit" [disabled]="!loginForm.valid">login</button>
         <p class="message">
           Not registered? <a [routerLink]="['/register']">Create an account</a>
         </p>
