@@ -117,6 +117,10 @@
               "devServerTarget": "youtube-clone:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

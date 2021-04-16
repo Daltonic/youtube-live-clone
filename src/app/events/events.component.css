@@ -89,6 +89,7 @@
 .streams__nav > button:focus {
   border: none;
   border-bottom: 3px solid #646464;
+  outline: none;
 }
 
 .streams__nav > button.active {

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <div class="header">
       <div class="header__left">
         <mat-icon class="header__icon">menu</mat-icon>
-        <img class="header__logo" src="/assets/logo.svg" alt="youtube logo" />
+        <img [routerLink]="['/']" class="header__logo" src="/assets/logo.svg" alt="youtube logo" />
       </div>
 
       <div class="header__middle">
@@ -42,6 +42,11 @@ import { Component, OnInit } from '@angular/core';
       .header__logo {
         height: 75px;
         margin-left: 20px;
+        cursor: pointer;
+      }
+
+      .header__logo:focus {
+        outline: none;
       }
 
       .header__left,
