@@ -7,11 +7,40 @@
         alt="youtube logo"
         width="200"
       />
-      <form class="login-form">
-        <input type="text" placeholder="Fullname" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Create</button>
+      <form class="login-form" class="login-form"
+      #loginForm="ngForm"
+      (ngSubmit)="submit(loginForm.value)">
+        <input
+          type="text"
+          placeholder="Fullname"
+          required
+          minlength="3"
+          ngModel
+          name="fullname"
+          #fullname="ngModel"
+          id="fullname"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          minlength="3"
+          ngModel
+          name="email"
+          #email="ngModel"
+          id="email"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          minlength="6"
+          ngModel
+          name="password"
+          #password="ngModel"
+          id="password"
+        />
+        <button type="submit" [disabled]="!loginForm.valid">Register</button>
         <p class="message">
           Already registered? <a [routerLink]="['/login']">Sign In</a>
         </p>
