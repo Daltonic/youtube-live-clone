@@ -28,7 +28,7 @@ import { Component, OnInit } from '@angular/core';
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 20px;
+        padding: 0 20px;
         position: sticky;
         top: 0;
         background-color: white;
