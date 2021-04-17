@@ -1,6 +1,6 @@
 <div class="videoCard">
   <img class="videoCard__thumbnail" [src]="image" [alt]="channel" />
-  <div *ngIf="live" class="videoCard__indicator">
+  <div *ngIf="live == 'true'" class="videoCard__indicator">
     <mat-icon svgIcon="access_point"></mat-icon>
     <p>LIVE</p>
   </div>

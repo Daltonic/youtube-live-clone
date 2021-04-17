@@ -12,7 +12,7 @@ export class VideoComponent {
   @Input() channel: string = ''
   @Input() views: string = ''
   @Input() timestamp: string = ''
-  @Input() live: boolean = false
+  @Input() live: string = 'false'
 
   ngOnInit(): void {}
 }

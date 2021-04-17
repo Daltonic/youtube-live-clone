@@ -30,7 +30,7 @@
         <app-video
           *ngFor="let event of events"
           [title]="event.title"
-          timestamp="1 days ago"
+          [timestamp]="timeAgo(event.timestamp)"
           [channel]="event.channel"
           [views]="event.views + 'k views'"
           [image]="event.imgURL"
