@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
     <app-rows title="Liked Vedios" icon="thumb_up_alt_outlined"></app-rows>
     <app-rows title="Show More" icon="expand_more_outlined"></app-rows>
     <hr class="sidebar__hr" />
-    <button class="logout" [routerLink]="['/login']">Logout</button>
+    <button class="logout" (click)="logOut()">Logout</button>
   `,
   styles: [
     `
@@ -49,8 +51,13 @@ import { Component, OnInit } from '@angular/core';
     `,
   ],
 })
-export class SidebarComponent implements OnInit {
-  constructor() {}
+export class SidebarComponent {
+  constructor(private auth: AngularFireAuth, private route: Router) {}
 
-  ngOnInit(): void {}
+  public logOut(): void {
+    this.auth
+      .signOut()
+      .then(() => this.route.navigate(['login']))
+      .catch((error) => console.log(error.message))
+  }
 }
