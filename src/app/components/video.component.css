@@ -13,6 +13,14 @@
   cursor: pointer;
 }
 
+.videoCard:focus,
+.videoCard:active,
+.videoCard:hover {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 .videoCard__thumbnail {
   height: 140px;
   width: 250px;
@@ -54,4 +62,5 @@
 
 .videoCard__indicator > p {
   font-weight: 500;
+  margin: 0;
 }

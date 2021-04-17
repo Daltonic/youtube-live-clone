@@ -17,8 +17,7 @@ export class LoginComponent {
 
     this.auth
       .signInWithEmailAndPassword(email, password)
-      .then((res) => console.log(res))
+      .then(() => this.route.navigate(['']))
       .catch((error) => console.log(error));
-      // .then(() => this.route.navigate(['']));
   }
 }

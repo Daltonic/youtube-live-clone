@@ -66,6 +66,13 @@ import { Component, OnInit } from '@angular/core';
         border: none;
       }
 
+      .header__middle > input:focus,
+      .header__middle > input:active {
+        outline: none;
+        border: none;
+      }
+      
+
       .header__searchBtn {
         width: 50px !important;
         background-color: #fafafa;

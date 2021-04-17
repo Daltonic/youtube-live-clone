@@ -62,7 +62,6 @@
 .about__wrapper {
   padding: 40px 20px;
   background-color: #f1f1f1;
-  height: calc(100vh - 385px);
 }
 
 .streams__nav {

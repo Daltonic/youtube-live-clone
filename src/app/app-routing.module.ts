@@ -16,8 +16,8 @@ const routes: Routes = [
   {
     path: '',
     component: EventsComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
