@@ -7,9 +7,12 @@
         alt="youtube logo"
         width="200"
       />
-      <form class="login-form" class="login-form"
-      #loginForm="ngForm"
-      (ngSubmit)="submit(loginForm.value)">
+      <form
+        class="login-form"
+        class="login-form"
+        #loginForm="ngForm"
+        (ngSubmit)="submit(loginForm.value)"
+      >
         <input
           type="text"
           placeholder="Fullname"
@@ -40,7 +43,18 @@
           #password="ngModel"
           id="password"
         />
-        <button type="submit" [disabled]="!loginForm.valid">Register</button>
+        <button
+          type="submit"
+          [style]="
+            !loginForm.valid || loading
+              ? 'background-color: rgb(255, 94, 94);'
+              : ''
+          "
+          type="submit"
+          [disabled]="!loginForm.valid || loading"
+        >
+          {{ loading ? "Registering..." : "Register" }}
+        </button>
         <p class="message">
           Already registered? <a [routerLink]="['/login']">Sign In</a>
         </p>

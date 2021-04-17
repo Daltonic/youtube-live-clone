@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  loading: boolean = false;
   constructor(private auth: AngularFireAuth, private route: Router) {}
 
   public submit(form: any): void {
+    this.loading = true;
     const fullname = form.fullname;
     const email = form.email;
     const password = form.password;
@@ -23,9 +25,13 @@ export class RegisterComponent {
             displayName: fullname,
           })
           .then(() => {
+            this.loading = false;
             this.route.navigate(['login']);
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        this.loading = false;
+        console.log(error);
+      });
   }
 }

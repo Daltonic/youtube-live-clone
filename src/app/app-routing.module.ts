@@ -11,6 +11,7 @@ import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,12 @@ const routes: Routes = [
   {
     path: 'events/:id',
     component: EventComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'create',
+    component: CreateEventComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },

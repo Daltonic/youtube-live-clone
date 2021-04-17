@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
       <div class="header__right">
+        <mat-icon class="header__icon" [routerLink]="['/create']" title="create new event">open_in_new</mat-icon>
         <mat-icon class="header__icon">video_call</mat-icon>
         <mat-icon class="header__icon">apps</mat-icon>
         <mat-icon class="header__icon">notifications</mat-icon>
@@ -37,6 +38,7 @@ import { Component, OnInit } from '@angular/core';
 
       .header__icon {
         line-height: unset;
+        cursor: pointer;
       }
 
       .header__logo {

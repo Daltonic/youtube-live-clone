@@ -32,7 +32,18 @@
           #password="ngModel"
           id="password"
         />
-        <button type="submit" [disabled]="!loginForm.valid">login</button>
+        <button
+          type="submit"
+          [style]="
+            !loginForm.valid || loading
+              ? 'background-color: rgb(255, 94, 94);'
+              : ''
+          "
+          type="submit"
+          [disabled]="!loginForm.valid || loading"
+        >
+          {{ loading ? "Logging..." : "login" }}
+        </button>
         <p class="message">
           Not registered? <a [routerLink]="['/register']">Create an account</a>
         </p>
