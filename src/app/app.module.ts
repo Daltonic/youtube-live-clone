@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './components/header.component';
@@ -33,6 +34,7 @@ import { RelatedComponent } from './components/related.component';
     RowsComponent,
     VideoComponent,
     RelatedComponent,
+    CreateEventComponent,
   ],
   imports: [
     BrowserModule,
