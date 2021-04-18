@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { CometChat } from "@cometchat-pro/chat";
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-event',
