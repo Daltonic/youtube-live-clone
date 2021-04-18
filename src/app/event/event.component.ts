@@ -63,10 +63,6 @@ export class EventComponent implements OnInit {
     return url.match(regExp)[1];
   }
 
-  wordCount(words: string, limit: number = 80): boolean {
-    return words.split(' ').length > limit;
-  }
-
   scrollToEnd(): void {
     const elmnt = document.getElementById('messages-container');
     elmnt.scrollTop = elmnt.scrollHeight;

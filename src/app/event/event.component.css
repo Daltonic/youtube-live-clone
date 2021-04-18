@@ -102,25 +102,14 @@
 }
 
 .event__links {
-  display: flex;
-  flex-direction: column;
   margin-top: 30px;
 }
 
-.event__links a {
-  text-decoration: none;
-  color: gray;
+.event__links > button {
   text-transform: uppercase;
-}
-
-.event__links a:hover {
-  color: red;
-}
-
-.event__links a:last-child {
-  margin-top: 20px;
-  color: blue;
-  text-decoration: underline;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 .event__chat {
