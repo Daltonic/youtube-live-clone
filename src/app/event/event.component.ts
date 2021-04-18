@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class EventComponent implements OnInit {
   message: string = '';
   event: any = null;
-  dataLoaded: boolean = false;
+  events: Array<any> = [];
 
   constructor(
     private firestore: AngularFirestore,
@@ -22,7 +22,10 @@ export class EventComponent implements OnInit {
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
 
-    this.route.params.subscribe((param) => this.getEvent(param.id));
+    this.route.params.subscribe((param) => {
+      this.getEvent(param.id);
+      this.listRelatedEvents(param.id);
+    });
   }
 
   getEvent(id: string) {
@@ -33,9 +36,21 @@ export class EventComponent implements OnInit {
       .then((doc: any) => {
         const key = doc.id;
         const data = doc.data();
-        data.videoId = this.toVideoId(data.videoId)
+        data.videoId = this.toVideoId(data.videoId);
         this.event = { ...data, key };
-        this.dataLoaded = true
+      });
+  }
+
+  public listRelatedEvents(id: string) {
+    this.firestore
+      .collection('events', (ref) => ref.orderBy('timestamp', 'desc').limit(5))
+      .snapshotChanges()
+      .subscribe((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          const key: string = childSnapshot.payload.doc.id;
+          const data: any = childSnapshot.payload.doc.data();
+          if(key != id) this.events.push({ ...data, key });
+        });
       });
   }
 
@@ -46,6 +61,10 @@ export class EventComponent implements OnInit {
   public toVideoId(url: string) {
     const regExp = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
     return url.match(regExp)[1];
+  }
+
+  wordCount(words: string, limit: number = 80): boolean {
+    return words.split(' ').length > limit;
   }
 
   scrollToEnd(): void {

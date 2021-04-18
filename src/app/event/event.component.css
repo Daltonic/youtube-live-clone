@@ -37,6 +37,7 @@
 
 .info__left > h4 {
   font-weight: 500;
+  text-transform: uppercase;
 }
 .info__left > p {
   font-size: 12px;
@@ -98,6 +99,28 @@
 
 .event__details {
   margin: 10px 0;
+}
+
+.event__links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.event__links a {
+  text-decoration: none;
+  color: gray;
+  text-transform: uppercase;
+}
+
+.event__links a:hover {
+  color: red;
+}
+
+.event__links a:last-child {
+  margin-top: 20px;
+  color: blue;
+  text-decoration: underline;
 }
 
 .event__chat {

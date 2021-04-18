@@ -29,6 +29,7 @@
 .video__text > p {
   font-size: 14px;
   color: gray;
+  margin: 0;
 }
 
 .video__text > p:last-child {
