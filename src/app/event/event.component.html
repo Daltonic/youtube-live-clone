@@ -7,14 +7,14 @@
         <youtube-player
           width="800"
           height="500"
-          videoId="HabG0k6Ycvw"
+          [videoId]="event?.videoId"
         ></youtube-player>
       </div>
 
       <div class="event__info">
         <div class="info__left">
-          <h4>REVERE - 24/7 Worship - Live Stream</h4>
-          <p>717 watching now•Started streaming on Mar 17, 2021</p>
+          <h4>{{ event?.title }}</h4>
+          <p>Started streaming {{ timeAgo(event?.timestamp) }}</p>
         </div>
         <div class="info__right">
           <span>
@@ -44,16 +44,10 @@
           <img src="/assets/avatar.jpg" class="mat-card-avatar" />
         </div>
         <div class="event__data">
-          <h4>REVERE</h4>
-          <p>182K subscribers</p>
+          <h4>{{ event?.channel }}</h4>
+          <p>{{ event?.views }}K subscribers</p>
 
-          <p class="event__details">
-            👉Subscribe to Our Youtube Channel:
-            https://Revere.lnk.to/subscribeYT​ 🎼 Learn To Play:
-            https://www.weareworship.com​ ‎▶ Listen to the full album:
-            http://revere.lnk.to/REVERE​ 🫂Join the online community:
-            https://www.revere.live/
-          </p>
+          <p class="event__details">{{ event?.description }}</p>
         </div>
         <div>
           <button class="subscribe__btn">Subscribe</button>

@@ -29,11 +29,6 @@ export class EventsComponent implements OnInit {
       });
   }
 
-  public getVideoId(url: string) {
-    const regExp = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
-    return url.match(regExp)[1];
-  }
-
   public timeAgo(date: any) {
     const NOW: any = new Date();
     date = new Date(date);
