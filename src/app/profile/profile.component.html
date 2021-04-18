@@ -1,1 +1,62 @@
 <p>profile works!</p>
+<div class="app">
+    <div class="login-page">
+      <div class="form">
+        <h4>Update Your Profile</h4>
+        <form
+          class="login-form"
+          #profileForm="ngForm"
+          (ngSubmit)="submit(profileForm)"
+        >
+          <input
+            placeholder="fullname"
+            required
+            minlength="3"
+            [ngModel]="user?.displayName"
+            name="fullname"
+            #fullname="ngModel"
+            id="fullname"
+            disabled
+          />
+  
+          <input
+            placeholder="Email"
+            type="email"
+            required
+            minlength="3"
+            [ngModel]="user?.email"
+            name="email"
+            #email="ngModel"
+            id="email"
+            disabled
+          />
+
+          <input
+            placeholder="Avatar"
+            required
+            minlength="3"
+            [ngModel]="user?.photoURL"
+            name="avatar"
+            #Avatar="ngModel"
+            id="avatar"
+          />
+  
+          <button
+            [style]="
+              !profileForm.valid || loading
+                ? 'background-color: rgb(255, 94, 94);'
+                : ''
+            "
+            type="submit"
+            [disabled]="!profileForm.valid || loading"
+          >
+            {{ loading ? "Updating..." : "Update" }}
+          </button>
+          <p class="message">
+            Changed your mind? <a [routerLink]="['/']">Back to home</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -19,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
         <mat-icon class="header__icon">video_call</mat-icon>
         <mat-icon class="header__icon">apps</mat-icon>
         <mat-icon class="header__icon">notifications</mat-icon>
-        <img src="/assets/avatar.jpg" class="mat-card-avatar" />
+        <img [routerLink]="['/profile']" src="/assets/avatar.jpg" class="mat-card-avatar" title="Your Profile" />
       </div>
     </div>
   `,
@@ -93,6 +93,7 @@ import { Component, OnInit } from '@angular/core';
         border-radius: 50%;
         flex-shrink: 0;
         object-fit: cover;
+        cursor: pointer;
       }
     `,
   ],

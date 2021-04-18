@@ -28,13 +28,7 @@ export class LoginComponent {
     const apiKey = environment.APP_KEY
 
     CometChat.login(user.uid, apiKey)
-      .then(() => {
-        if (user.photoURL) {
-          this.route.navigate([''])
-        } else {
-          this.route.navigate(['profile'])
-        }
-      })
+      .then(() => this.route.navigate(['']))
       .catch((error) => console.log(error))
       .finally(() => this.loading = false);
   }
