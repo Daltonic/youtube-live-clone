@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { CometChat } from '@cometchat-pro/chat';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,21 @@ export class LoginComponent {
 
     this.auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => this.route.navigate(['']))
+      .then((res) => this.loginCometChat(res.user))
+      .catch((error) => console.log(error))
+  }
+
+  private loginCometChat(user: any) {
+    const apiKey = environment.APP_KEY
+
+    CometChat.login(user.uid, apiKey)
+      .then(() => {
+        if (user.photoURL) {
+          this.route.navigate([''])
+        } else {
+          this.route.navigate(['profile'])
+        }
+      })
       .catch((error) => console.log(error))
       .finally(() => this.loading = false);
   }
