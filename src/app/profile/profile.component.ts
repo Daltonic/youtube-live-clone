@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
     const uid = this.user.uid;
 
     var user = new CometChat.User(uid);
-    user.setAvatar(url);
+    user.setMetadata({avatar: url});
 
     CometChat.updateUser(user, apiKey)
     .then(() => this.route.navigate(['']))

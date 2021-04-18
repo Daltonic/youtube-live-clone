@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ import { Component, OnInit } from '@angular/core';
         <mat-icon class="header__icon">video_call</mat-icon>
         <mat-icon class="header__icon">apps</mat-icon>
         <mat-icon class="header__icon">notifications</mat-icon>
-        <img [routerLink]="['/profile']" src="/assets/avatar.jpg" class="mat-card-avatar" title="Your Profile" />
+        <img [routerLink]="['/profile']" [src]="user?.photoURL" class="mat-card-avatar" title="Your Profile" />
       </div>
     </div>
   `,
@@ -99,7 +100,11 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  user: any = null;
+
+  constructor(private auth: AngularFireAuth) {
+    this.auth.authState.subscribe((authState) => (this.user = authState));
+  }
 
   ngOnInit(): void {}
 }
