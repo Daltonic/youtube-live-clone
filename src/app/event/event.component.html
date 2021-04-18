@@ -53,7 +53,7 @@
 
           <p class="event__links">
             <button [routerLink]="['/edit', event?.key]">Edit</button>
-            <button>Delete</button>
+            <button (click)="onDelete()">Delete</button>
           </p>
         </div>
         <div>

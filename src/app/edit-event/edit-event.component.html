@@ -75,7 +75,7 @@
           {{ loading ? "Updating..." : "Update" }}
         </button>
         <p class="message">
-          Changed your mind? <a [routerLink]="['/']">Back to home</a>
+          Changed your mind? <a [routerLink]="['events', event?.id]">Back to event</a>
         </p>
       </form>
     </div>

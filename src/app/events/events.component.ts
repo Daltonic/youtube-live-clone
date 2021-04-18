@@ -21,6 +21,7 @@ export class EventsComponent implements OnInit {
       .collection('events')
       .snapshotChanges()
       .subscribe((snapshot) => {
+        this.events = [];
         snapshot.forEach((childSnapshot) => {
           const key: string = childSnapshot.payload.doc.id;
           const data: any = childSnapshot.payload.doc.data();

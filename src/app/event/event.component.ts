@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -14,7 +14,8 @@ export class EventComponent implements OnInit {
 
   constructor(
     private firestore: AngularFirestore,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.route.params.subscribe((param) => {
       this.getEvent(param.id);
@@ -26,6 +27,18 @@ export class EventComponent implements OnInit {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
+  }
+
+  onDelete() {
+    if (confirm('Are you sure?')) this.remEvent();
+  }
+
+  private remEvent() {
+    this.firestore
+      .collection('events')
+      .doc(this.event.key)
+      .delete()
+      .then(() => this.router.navigate(['']));
   }
 
   getEvent(id: string) {
@@ -46,6 +59,7 @@ export class EventComponent implements OnInit {
       .collection('events', (ref) => ref.orderBy('timestamp', 'desc').limit(5))
       .snapshotChanges()
       .subscribe((snapshot) => {
+        this.events = [];
         snapshot.forEach((childSnapshot) => {
           const key: string = childSnapshot.payload.doc.id;
           const data: any = childSnapshot.payload.doc.data();
