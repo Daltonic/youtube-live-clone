@@ -15,17 +15,17 @@ export class EventComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.route.params.subscribe((param) => {
+      this.getEvent(param.id);
+      this.listRelatedEvents(param.id);
+    });
+  }
 
   ngOnInit(): void {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
-
-    this.route.params.subscribe((param) => {
-      this.getEvent(param.id);
-      this.listRelatedEvents(param.id);
-    });
   }
 
   getEvent(id: string) {
@@ -49,7 +49,7 @@ export class EventComponent implements OnInit {
         snapshot.forEach((childSnapshot) => {
           const key: string = childSnapshot.payload.doc.id;
           const data: any = childSnapshot.payload.doc.data();
-          if(key != id) this.events.push({ ...data, key });
+          if (key != id) this.events.push({ ...data, key });
         });
       });
   }

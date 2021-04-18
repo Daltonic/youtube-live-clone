@@ -1,0 +1,83 @@
+<div class="app">
+  <div class="login-page">
+    <div class="form">
+      <h4>Update New Event</h4>
+      <form
+        class="login-form"
+        #updateForm="ngForm"
+        (ngSubmit)="submit(updateForm)"
+      >
+        <input
+          placeholder="Title"
+          required
+          minlength="3"
+          [ngModel]="event?.title"
+          name="title"
+          #title="ngModel"
+          id="title"
+        />
+
+        <input
+          placeholder="Youtube Link"
+          required
+          minlength="3"
+          [ngModel]="event?.videoId"
+          name="videoId"
+          #videoId="ngModel"
+          id="videoId"
+        />
+
+        <input
+          placeholder="Image URL"
+          required
+          minlength="3"
+          [ngModel]="event?.imgURL"
+          name="imgURL"
+          #imgURL="ngModel"
+          id="imgURL"
+        />
+
+        <input
+          placeholder="Channel"
+          required
+          minlength="3"
+          [ngModel]="event?.channel"
+          name="channel"
+          #channel="ngModel"
+          id="channel"
+        />
+
+        <input
+          placeholder="Description"
+          required
+          minlength="3"
+          [ngModel]="event?.description"
+          name="description"
+          #description="ngModel"
+          id="description"
+        />
+
+        <select name="live" [ngModel]="event?.live" #live="ngModel" id="live" required>
+          <option value="" selected>Live?</option>
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+
+        <button
+          [style]="
+            !updateForm.valid || loading
+              ? 'background-color: rgb(255, 94, 94);'
+              : ''
+          "
+          type="submit"
+          [disabled]="!updateForm.valid || loading"
+        >
+          {{ loading ? "Updating..." : "Update" }}
+        </button>
+        <p class="message">
+          Changed your mind? <a [routerLink]="['/']">Back to home</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

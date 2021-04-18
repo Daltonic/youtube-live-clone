@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { AngularFireModule } from '@angular/fire'
+import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from "src/environments/environment";
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './components/header.component';
@@ -35,6 +36,7 @@ import { RelatedComponent } from './components/related.component';
     VideoComponent,
     RelatedComponent,
     CreateEventComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { RelatedComponent } from './components/related.component';
     HttpClientModule,
     YouTubePlayerModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
