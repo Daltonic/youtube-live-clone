@@ -41,7 +41,7 @@
 
       <div class="event__description">
         <div>
-          <img src="/assets/avatar.jpg" class="mat-card-avatar" />
+          <img [src]="event?.imgURL" class="mat-card-avatar" />
         </div>
         <div class="event__data">
           <h4>{{ event?.channel }}</h4>
@@ -93,22 +93,25 @@
         >
           <div class="chatFooter__wrapper">
             <div class="avatar">
-              <img src="/assets/avatar.jpg" class="mat-card-avatar" />
+              <img [src]="user?.photoURL" class="mat-card-avatar" />
             </div>
             <div class="sendForm">
-              <p>darlington gospel</p>
+              <p>{{user?.displayName}}</p>
               <input
                 ngModel
                 name="message"
                 #message="ngModel"
                 id="message"
                 placeholder="Say something..."
+                maxlength="200"
+                max="200"
                 required
+                (keydown)="wordCounter(message.value)"
               />
             </div>
           </div>
           <div class="chatFooter__btn">
-            <span class="counter">0/200</span>
+            <span class="counter">{{words}}/200</span>
             <button type="submit" [disabled]="!chatForm.valid">
               <mat-icon class="icon">send</mat-icon>
             </button>
@@ -133,7 +136,7 @@
           [views]="event.views + 'k views'"
           [image]="event.imgURL"
           [live]="event.live"
-          [routerLink]="['/events', event.key]"
+          (click)="viewEvent(event)"
         ></app-related>
       </div>
     </div>

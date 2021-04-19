@@ -14,7 +14,7 @@
 
 .videoCard__thumbnail {
   height: 100px;
-  object-fit: contain;
+  width: 150px;
 }
 
 .video__text {

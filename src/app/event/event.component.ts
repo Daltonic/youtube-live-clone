@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CometChat } from '@cometchat-pro/chat';
-import { environment } from 'src/environments/environment';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -14,8 +13,9 @@ import { NgForm } from '@angular/forms';
 export class EventComponent implements OnInit {
   messages: Array<any> = [];
   message: string = '';
-  event: any = null;
   events: Array<any> = [];
+  event: any = null;
+  words: number = 0;
   user: any = null;
   id: string = '';
 
@@ -28,11 +28,11 @@ export class EventComponent implements OnInit {
     this.auth.authState.subscribe((authState) => (this.user = authState));
 
     this.route.params.subscribe((param) => {
+      this.id = param.id;
       this.getEvent(param.id);
       this.getMessages(param.id);
       this.listenForMessage(param.id);
       this.listRelatedEvents(param.id);
-      this.id = param.id;
     });
   }
 
@@ -40,6 +40,10 @@ export class EventComponent implements OnInit {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
+  }
+
+  ngOnDestroy(): void {
+    CometChat.removeMessageListener(this.id)
   }
 
   public submit(form: NgForm): void {
@@ -79,6 +83,27 @@ export class EventComponent implements OnInit {
         },
       })
     );
+  }
+
+  viewEvent(event: any) {
+    this.joinGroup(event.key);
+  }
+
+  private joinGroup(guid: string) {
+    const GUID = guid;
+    const password = '';
+    const groupType = CometChat.GROUP_TYPE.PUBLIC;
+
+    CometChat.joinGroup(GUID, groupType, password)
+      .then((group) => {
+        console.log('Group joined successfully:', group);
+        this.router.navigate(['events', guid]);
+      })
+      .catch((error) => {
+        if (error.code != 'ERR_ALREADY_JOINED')
+          console.log('Group joining failed with exception:', error);
+        this.router.navigate(['events', guid]);
+      });
   }
 
   private sendMessage(data: any, form: NgForm) {
@@ -179,5 +204,9 @@ export class EventComponent implements OnInit {
         }
       }
     }
+  }
+
+  wordCounter(words: string) {
+    this.words = words.split('').length
   }
 }

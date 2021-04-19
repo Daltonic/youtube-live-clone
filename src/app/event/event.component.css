@@ -13,6 +13,14 @@
   display: flex;
 }
 
+.mat-card-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
 .event__left,
 .event__right {
   padding: 0 15px;
@@ -93,8 +101,13 @@
   margin-top: 30px;
 }
 
+.event__description > .mat-card-avatar {
+  height: 50px;
+  width: 50px;
+}
+
 .event__data {
-  flex: 0.8;
+  flex: 0.9;
 }
 
 .event__details {
@@ -197,14 +210,6 @@
 .chatFooter__btn > button:active,
 .chatFooter__btn > button:focus {
   outline: none;
-}
-
-.mat-card-avatar {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  object-fit: cover;
 }
 
 .messages {
