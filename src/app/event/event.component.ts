@@ -30,6 +30,7 @@ export class EventComponent implements OnInit {
     this.route.params.subscribe((param) => {
       this.getEvent(param.id);
       this.getMessages(param.id);
+      this.listenForMessage(param.id);
       this.listRelatedEvents(param.id);
       this.id = param.id;
     });
@@ -48,7 +49,7 @@ export class EventComponent implements OnInit {
     }
   }
 
-  getMessages(guid: string) {
+  private getMessages(guid: string) {
     const limit = 50;
 
     const messagesRequest = new CometChat.MessagesRequestBuilder()
@@ -58,10 +59,26 @@ export class EventComponent implements OnInit {
 
     messagesRequest
       .fetchPrevious()
-      .then((messages) => (this.messages = messages))
+      .then((messages: Array<any>) => {
+        this.messages = messages.filter((m) => m.type == 'text');
+      })
       .catch((error) =>
         console.log('Message fetching failed with error:', error)
       );
+  }
+
+  private listenForMessage(guid: string) {
+    const listenerID = guid;
+
+    CometChat.addMessageListener(
+      listenerID,
+      new CometChat.MessageListener({
+        onTextMessageReceived: (message) => {
+          this.messages.push(message);
+          this.scrollToEnd();
+        },
+      })
+    );
   }
 
   private sendMessage(data: any, form: NgForm) {
@@ -162,17 +179,5 @@ export class EventComponent implements OnInit {
         }
       }
     }
-  }
-
-  numSequence(n: number): Array<number> {
-    return Array(n);
-  }
-
-  isMaxed(): Boolean {
-    return this.message.split(' ').length >= 200;
-  }
-
-  loggy(): void {
-    console.log(this.message);
   }
 }

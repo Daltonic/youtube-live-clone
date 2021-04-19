@@ -78,7 +78,7 @@
               class="message"
               *ngFor="let message of messages; let i = index"
             >
-              <img [src]="message.sender.metadata.avatar" class="mat-card-avatar" />
+              <img [src]="message.sender.metadata?.avatar" class="mat-card-avatar" />
               <span>
                 <span class="name">{{message.sender.name}}</span>
                 {{message.text}}

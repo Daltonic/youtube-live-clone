@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { CometChat } from '@cometchat-pro/chat';
 
 @Component({
   selector: 'app-events',
@@ -10,7 +12,7 @@ export class EventsComponent implements OnInit {
   about: boolean = false;
   events: Array<any> = [];
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore, private route: Router) {}
 
   ngOnInit(): void {
     this.listEvents();
@@ -27,6 +29,27 @@ export class EventsComponent implements OnInit {
           const data: any = childSnapshot.payload.doc.data();
           this.events.push({ ...data, key });
         });
+      });
+  }
+
+  viewEvent(event: any) {
+    this.joinGroup(event.key);
+  }
+
+  private joinGroup(guid: string) {
+    const GUID = guid;
+    const password = '';
+    const groupType = CometChat.GROUP_TYPE.PUBLIC;
+
+    CometChat.joinGroup(GUID, groupType, password)
+      .then((group) => {
+        console.log('Group joined successfully:', group);
+        this.route.navigate(['events', guid]);
+      })
+      .catch((error) => {
+        if (error.code != 'ERR_ALREADY_JOINED')
+          console.log('Group joining failed with exception:', error);
+        this.route.navigate(['events', guid]);
       });
   }
 

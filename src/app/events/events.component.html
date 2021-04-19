@@ -35,7 +35,7 @@
           [views]="event.views + 'k views'"
           [image]="event.imgURL"
           [live]="event.live"
-          [routerLink]="['/events', event.key]"
+          (click)="viewEvent(event)"
         ></app-video>
       </div>
     </div>
