@@ -12,6 +12,7 @@ import { EventComponent } from './event/event.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 
@@ -34,6 +35,12 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditEventComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'search/:keyword',
+    component: SearchComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },

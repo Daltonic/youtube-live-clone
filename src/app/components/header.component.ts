@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,20 +9,54 @@ import { AngularFireAuth } from '@angular/fire/auth';
     <div class="header">
       <div class="header__left">
         <mat-icon class="header__icon">menu</mat-icon>
-        <img [routerLink]="['/']" class="header__logo" src="/assets/logo.svg" alt="youtube logo" />
+        <img
+          [routerLink]="['/']"
+          class="header__logo"
+          src="/assets/logo.svg"
+          alt="youtube logo"
+        />
       </div>
 
-      <div class="header__middle">
-        <input class="header__search" type="text" placeholder="Search" />
-        <mat-icon class="header__icon header__searchBtn">search</mat-icon>
-      </div>
+      <form
+        #searchForm="ngForm"
+        (ngSubmit)="submit(searchForm)"
+        class="header__middle"
+      >
+        <input
+          ngModel
+          name="search"
+          #search="ngModel"
+          id="search"
+          class="header__search"
+          type="search"
+          placeholder="Search"
+          required
+        />
+        <button
+          class="header__searchBtn"
+          type="submit"
+          [disabled]="!searchForm.valid"
+        >
+          <mat-icon class="header__icon">search</mat-icon>
+        </button>
+      </form>
 
       <div class="header__right">
-        <mat-icon class="header__icon" [routerLink]="['/create']" title="create new event">open_in_new</mat-icon>
+        <mat-icon
+          class="header__icon"
+          [routerLink]="['/create']"
+          title="create new event"
+          >open_in_new</mat-icon
+        >
         <mat-icon class="header__icon">video_call</mat-icon>
         <mat-icon class="header__icon">apps</mat-icon>
         <mat-icon class="header__icon">notifications</mat-icon>
-        <img [routerLink]="['/profile']" [src]="user?.photoURL" class="mat-card-avatar" title="Your Profile" />
+        <img
+          [routerLink]="['/profile']"
+          [src]="user?.photoURL"
+          class="mat-card-avatar"
+          title="Your Profile"
+        />
       </div>
     </div>
   `,
@@ -67,6 +103,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
       .header__middle > input {
         flex: 1;
         border: none;
+        padding: 0 10px;
       }
 
       .header__middle > input:focus,
@@ -74,14 +111,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
         outline: none;
         border: none;
       }
-      
 
       .header__searchBtn {
-        width: 50px !important;
+        width: 70px !important;
         background-color: #fafafa;
+        border: none;
         border-left: 1px solid lightgray;
         color: gray;
         text-align: center;
+        cursor: pointer;
       }
 
       .header__right > .header__icon {
@@ -102,9 +140,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class HeaderComponent implements OnInit {
   user: any = null;
 
-  constructor(private auth: AngularFireAuth) {
+  constructor(private auth: AngularFireAuth, private router: Router) {
     this.auth.authState.subscribe((authState) => (this.user = authState));
   }
 
   ngOnInit(): void {}
+
+  public submit(form: NgForm): void {
+    if (form.valid) {
+      this.router.navigate(['search', form.value.search])
+    }
+  }
 }

@@ -1,0 +1,23 @@
+.app {
+  display: flex;
+}
+
+.sidebar {
+  flex: 0.2;
+}
+
+.search {
+  flex: 0.8;
+  background-color: #f9f9f9;
+  padding-bottom: 0;
+  display: flex;
+}
+
+.streams__wrapper {
+  padding: 40px 20px;
+}
+
+.streams__videos {
+    display: flex;
+    flex-wrap: wrap;
+  }

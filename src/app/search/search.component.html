@@ -1,1 +1,21 @@
-<p>search works!</p>
+<app-header></app-header>
+<div class="app">
+  <app-sidebar class="sidebar"></app-sidebar>
+  <div class="search">
+    <div class="streams__wrapper">
+        <h2 class="streams__title">Search Results({{events.length}})</h2>
+        <div class="streams__videos">
+          <app-video
+            *ngFor="let event of events"
+            [title]="event.title"
+            [timestamp]="timeAgo(event.timestamp)"
+            [channel]="event.channel"
+            [views]="event.views + 'k views'"
+            [image]="event.imgURL"
+            [live]="event.live"
+            (click)="viewEvent(event)"
+          ></app-video>
+        </div>
+      </div>
+  </div>
+</div>
