@@ -18,6 +18,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './components/header.component';
 import { SidebarComponent } from './components/sidebar.component';
 import { RowsComponent } from './components/rows.component';
@@ -38,7 +39,8 @@ import { RelatedComponent } from './components/related.component';
     RelatedComponent,
     CreateEventComponent,
     EditEventComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
