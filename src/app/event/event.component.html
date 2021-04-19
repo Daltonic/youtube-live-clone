@@ -76,17 +76,21 @@
           <div class="messages">
             <div
               class="message"
-              *ngFor="let n of numSequence(15); let i = index"
+              *ngFor="let message of messages; let i = index"
             >
-              <img src="/assets/avatar.jpg" class="mat-card-avatar" />
+              <img [src]="message.sender.metadata.avatar" class="mat-card-avatar" />
               <span>
-                <span class="name">darlington gospel</span>
-                Lorem Ipsum dalum
+                <span class="name">{{message.sender.name}}</span>
+                {{message.text}}
               </span>
             </div>
           </div>
         </div>
-        <div class="chatFooter">
+        <form
+          #chatForm="ngForm"
+          (ngSubmit)="submit(chatForm)"
+          class="chatFooter"
+        >
           <div class="chatFooter__wrapper">
             <div class="avatar">
               <img src="/assets/avatar.jpg" class="mat-card-avatar" />
@@ -94,18 +98,22 @@
             <div class="sendForm">
               <p>darlington gospel</p>
               <input
-                (change)="loggy()"
-                [(value)]="message"
-                type="text"
+                ngModel
+                name="message"
+                #message="ngModel"
+                id="message"
                 placeholder="Say something..."
+                required
               />
             </div>
           </div>
           <div class="chatFooter__btn">
             <span class="counter">0/200</span>
-            <mat-icon class="icon">send</mat-icon>
+            <button type="submit" [disabled]="!chatForm.valid">
+              <mat-icon class="icon">send</mat-icon>
+            </button>
           </div>
-        </div>
+        </form>
       </div>
       <div class="event__videos">
         <div class="badge-pills">

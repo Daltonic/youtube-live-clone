@@ -186,8 +186,17 @@
   color: gray;
 }
 
-.chatFooter__btn > .icon {
+.chatFooter__btn > button {
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+  color: gray;
+}
+
+.chatFooter__btn > button:hover,
+.chatFooter__btn > button:active,
+.chatFooter__btn > button:focus {
+  outline: none;
 }
 
 .mat-card-avatar {

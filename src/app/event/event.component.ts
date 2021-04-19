@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { CometChat } from "@cometchat-pro/chat";
-import { environment } from 'src/environments/environment'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { CometChat } from '@cometchat-pro/chat';
+import { environment } from 'src/environments/environment';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-event',
@@ -10,18 +12,26 @@ import { environment } from 'src/environments/environment'
   styleUrls: ['./event.component.css'],
 })
 export class EventComponent implements OnInit {
+  messages: Array<any> = [];
   message: string = '';
   event: any = null;
   events: Array<any> = [];
+  user: any = null;
+  id: string = '';
 
   constructor(
     private firestore: AngularFirestore,
+    private auth: AngularFireAuth,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {
+    this.auth.authState.subscribe((authState) => (this.user = authState));
+
     this.route.params.subscribe((param) => {
       this.getEvent(param.id);
+      this.getMessages(param.id);
       this.listRelatedEvents(param.id);
+      this.id = param.id;
     });
   }
 
@@ -29,6 +39,50 @@ export class EventComponent implements OnInit {
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
+  }
+
+  public submit(form: NgForm): void {
+    if (form.valid) {
+      const data = { message: form.value.message, guid: this.id };
+      this.sendMessage(data, form);
+    }
+  }
+
+  getMessages(guid: string) {
+    const limit = 50;
+
+    const messagesRequest = new CometChat.MessagesRequestBuilder()
+      .setLimit(limit)
+      .setGUID(guid)
+      .build();
+
+    messagesRequest
+      .fetchPrevious()
+      .then((messages) => (this.messages = messages))
+      .catch((error) =>
+        console.log('Message fetching failed with error:', error)
+      );
+  }
+
+  private sendMessage(data: any, form: NgForm) {
+    const receiverID = data.guid;
+    const messageText = data.message;
+    const receiverType = CometChat.RECEIVER_TYPE.GROUP;
+    const textMessage = new CometChat.TextMessage(
+      receiverID,
+      messageText,
+      receiverType
+    );
+
+    CometChat.sendMessage(textMessage)
+      .then((message) => {
+        this.messages.push(message);
+        form.reset();
+        this.scrollToEnd();
+      })
+      .catch((error) =>
+        console.log('Message sending failed with error:', error)
+      );
   }
 
   onDelete() {

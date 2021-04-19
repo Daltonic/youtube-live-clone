@@ -39,7 +39,6 @@
               ? 'background-color: rgb(255, 94, 94);'
               : ''
           "
-          type="submit"
           [disabled]="!loginForm.valid || loading"
         >
           {{ loading ? "Logging..." : "login" }}
