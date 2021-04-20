@@ -46,8 +46,10 @@ export class RegisterComponent {
 
     CometChat.createUser(user, apiKey)
       .then(() => this.route.navigate(['login']))
-      .catch((error) => console.log('error', error))
-      .finally(() => (this.loading = false));
+      .catch((error) => {
+        console.log(error);
+        this.loading = false;
+      });
   }
 
   private generateImageFromIntial(name: any) {

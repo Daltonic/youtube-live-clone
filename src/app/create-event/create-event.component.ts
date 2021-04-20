@@ -51,10 +51,10 @@ export class CreateEventComponent {
 
     CometChat.createGroup(group)
       .then((group) => console.log('Group created successfully:', group))
-      .catch((error) =>
+      .catch((error) => {
         console.log('Group creation failed with exception:', error)
-      )
-      .finally(() => (this.loading = false));
+        this.loading = false;
+      });
   }
 
   private toVideoId(url: string) {

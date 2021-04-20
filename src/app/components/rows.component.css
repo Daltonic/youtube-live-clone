@@ -11,7 +11,7 @@
 
 .rows__title {
   flex: 1;
-  margin-left: 20px;
+  margin: 0 0 0 20px;
   font-size: 12px;
   font-weight: 500;
 }

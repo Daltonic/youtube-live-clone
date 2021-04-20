@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { CometChat } from '@cometchat-pro/chat';
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -14,22 +14,24 @@ export class LoginComponent {
   constructor(private auth: AngularFireAuth, private route: Router) {}
 
   public submit(form): void {
-    this.loading = true
+    this.loading = true;
     const email = form.email;
     const password = form.password;
 
     this.auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => this.loginCometChat(res.user))
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   }
 
   private loginCometChat(user: any) {
-    const apiKey = environment.APP_KEY
+    const apiKey = environment.APP_KEY;
 
     CometChat.login(user.uid, apiKey)
       .then(() => this.route.navigate(['']))
-      .catch((error) => console.log(error))
-      .finally(() => this.loading = false);
+      .catch((error) => {
+        console.log(error);
+        this.loading = false;
+      });
   }
 }
