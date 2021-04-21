@@ -6,7 +6,7 @@
       <div class="event__player">
         <youtube-player
           width="800"
-          height="500"
+          height="450"
           [videoId]="event?.videoId"
         ></youtube-player>
       </div>
@@ -33,7 +33,9 @@
             <mat-icon class="info__icon">playlist_play</mat-icon>
             Save
           </span>
-          <mat-icon class="info__icon">flag</mat-icon>
+          <span>
+            <mat-icon class="info__icon">flag</mat-icon>
+          </span>
         </div>
       </div>
 
@@ -78,10 +80,13 @@
               class="message"
               *ngFor="let message of messages; let i = index"
             >
-              <img [src]="message.sender.metadata?.avatar" class="mat-card-avatar" />
+              <img
+                [src]="message.sender?.avatar || message.sender.metadata?.avatar"
+                class="mat-card-avatar"
+              />
               <span>
-                <span class="name">{{message.sender.name}}</span>
-                {{message.text}}
+                <span class="name">{{ message.sender.name }}</span>
+                {{ message.text }}
               </span>
             </div>
           </div>
@@ -96,7 +101,7 @@
               <img [src]="user?.photoURL" class="mat-card-avatar" />
             </div>
             <div class="sendForm">
-              <p>{{user?.displayName}}</p>
+              <p>{{ user?.displayName }}</p>
               <input
                 ngModel
                 name="message"
@@ -111,7 +116,7 @@
             </div>
           </div>
           <div class="chatFooter__btn">
-            <span class="counter">{{words}}/200</span>
+            <span class="counter">{{ words }}/200</span>
             <button type="submit" [disabled]="!chatForm.valid">
               <mat-icon class="icon">send</mat-icon>
             </button>

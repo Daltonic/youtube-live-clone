@@ -21,7 +21,10 @@ export class LoginComponent {
     this.auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => this.loginCometChat(res.user))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        this.loading = false;
+      });
   }
 
   private loginCometChat(user: any) {

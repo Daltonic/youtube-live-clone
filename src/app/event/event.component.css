@@ -27,20 +27,27 @@
   margin: 15px 0;
 }
 
-.event__left,
-.info__left {
-  flex: 0.6;
+.info__left,
+.info__right {
+  flex: 0.5;
+} 
+
+.event__left {
+  flex: 0.7;
 }
 
-.event__right,
-.info__right {
-  flex: 0.4;
+.event__right {
+  flex: 0.3;
 }
 
 .event__info {
   display: flex;
   justify-content: space-between;
   padding: 25px 0;
+}
+
+.info__right {
+  text-align: right;
 }
 
 .info__left > h4 {
@@ -63,6 +70,10 @@
   font-weight: 500;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.info__right span:last-child {
+  margin-right: 0;
 }
 
 .info__icon:hover {

@@ -121,7 +121,7 @@ export class EventComponent implements OnInit {
         this.messages.push(message);
         form.reset();
         this.scrollToEnd();
-        this.wordCounter('');
+        this.words = 0;
       })
       .catch((error) =>
         console.log('Message sending failed with error:', error)

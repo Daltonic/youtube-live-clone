@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
     <app-rows selected="true" svg="access_point" title="Live"></app-rows>
     <app-rows title="Your Videos" icon="tv"></app-rows>
     <app-rows title="Watch Later" icon="watch_ater"></app-rows>
-    <app-rows title="Liked Vedios" icon="thumb_up_alt_outlined"></app-rows>
+    <app-rows title="Liked Videos" icon="thumb_up_alt_outlined"></app-rows>
     <app-rows title="Show More" icon="expand_more_outlined"></app-rows>
     <hr class="sidebar__hr" />
     <button class="logout" (click)="logOut()">Logout</button>
@@ -34,15 +34,13 @@ import { Router } from '@angular/router';
         text-transform: uppercase;
         outline: 0;
         background: red;
-        width: 20%;
+        width: 100%;
         border: 0;
         padding: 15px;
         color: #ffffff;
         font-size: 14px;
         transition: all 0.3 ease;
         cursor: pointer;
-        position: fixed;
-        bottom: 0;
       }
 
       .logout:hover {

@@ -31,8 +31,8 @@ export class RegisterComponent {
           .then(() => this.signUpWithCometChat({ ...res.user, avatar }));
       })
       .catch((error) => {
-        this.loading = false;
         console.log(error);
+        this.loading = false;
       });
   }
 
