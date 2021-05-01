@@ -34,13 +34,13 @@ export class ProfileComponent implements OnInit {
   }
 
   private setAvatar(url: string) {
-    const apiKey = environment.APP_KEY;
+    const authKey = environment.AUTH_KEY;
     const uid = this.user.uid;
 
     var user = new CometChat.User(uid);
     user.setAvatar(url);
 
-    CometChat.updateUser(user, apiKey)
+    CometChat.updateUser(user, authKey)
     .then(() => this.route.navigate(['']))
     .catch((error) => console.log(error))
     .finally(() => this.loading = false);

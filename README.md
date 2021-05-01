@@ -27,19 +27,18 @@ This demo uses:
 To run the demo follow these steps:
 
 1. [Head to CometChat Pro and create an account](https://www.cometchat.com/pro?utm_source=github&utm_medium=link&utm_campaign=NAMEOFREPO)
-2. From the [dashboard](https://app.cometchat.com/signup?utm_source=github&utm_medium=link&utm_campaign=NAMEOFREPO), create a new app called "Chat Apps"
-3. One created, click **Explore**
-4. Go to the **API Keys** tab and click **Create API Key**
-5. Create an API key called "Youtube-live Clone" with **Full Access**
-6. Click on the newly created API, navigate to the Users tab, and delete all the default users and groups leaving it clean (very important).
-7. Get the Angular CLI installed on your machine by entering this command on your terminal.
+2. From the [dashboard](https://app.cometchat.com/signup?utm_source=github&utm_medium=link&utm_campaign=NAMEOFREPO), add a new app called "youtube-clone"
+3. Select this newly added app from the list.
+4. From the Quick Start copy the APP_ID, REGION and AUTH_KEY. These will be used later.
+5. Navigate to the Users tab, and delete all the default users and groups leaving it clean (very important).
+6. Get the Angular CLI installed on your machine by entering this command on your terminal.
   ```sh
   npm install -g @angular/cli
   ```
-8. Download the repository [here](https://github.com/Daltonic/youtube-live-clone/archive/master.zip) or by running `git clone https://github.com/Daltonic/youtube-live-clone.git` and open it in a code editor.
-9. [Head to Firebase and create a new project](https://console.firebase.google.com)
-10. Open the "environment.ts" file in the project.
-11. Enter your secret keys from cometChat and Firebase in this manner.
+7. Download the repository [here](https://github.com/Daltonic/youtube-live-clone/archive/master.zip) or by running `git clone https://github.com/Daltonic/youtube-live-clone.git` and open it in a code editor.
+8. [Head to Firebase and create a new project](https://console.firebase.google.com)
+9. Open the "environment.ts" file in the project.
+10. Enter your secret keys from cometChat and Firebase in this manner.
   ```ts
     
     firebase: {
@@ -53,7 +52,7 @@ To run the demo follow these steps:
         measurementId: 'xxx-xxx-xxx',
     },
     APP_ID: 'xxx-xxx-xxx',
-    APP_KEY: 'xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx',
+    AUTH_KEY: 'xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx',
     APP_REGION: 'xx',
 
   ```

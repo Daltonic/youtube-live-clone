@@ -37,14 +37,14 @@ export class RegisterComponent {
   }
 
   private signUpWithCometChat(data: any) {
-    const apiKey = environment.APP_KEY;
+    const authKey = environment.AUTH_KEY;
 
     const user = new CometChat.User(data.uid);
 
     user.setName(data.displayName);
     user.setMetadata({avatar: data.avatar});
 
-    CometChat.createUser(user, apiKey)
+    CometChat.createUser(user, authKey)
       .then(() => this.route.navigate(['login']))
       .catch((error) => {
         console.log(error);

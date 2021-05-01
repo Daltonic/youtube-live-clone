@@ -13,10 +13,10 @@ export const environment = {
     messagingSenderId: 'xxx-xxx-xxx',
     appId: 'xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx',
     measurementId: 'xxx-xxx-xxx',
-  },
-  APP_ID: 'xxx-xxx-xxx',
-  APP_KEY: 'xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx',
-  APP_REGION: 'xx',
+},
+APP_ID: 'xxx-xxx-xxx',
+AUTH_KEY: 'xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx',
+APP_REGION: 'xx',
 };
 
 /*

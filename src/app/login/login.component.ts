@@ -28,9 +28,9 @@ export class LoginComponent {
   }
 
   private loginCometChat(user: any) {
-    const apiKey = environment.APP_KEY;
+    const authKey = environment.AUTH_KEY;
 
-    CometChat.login(user.uid, apiKey)
+    CometChat.login(user.uid, authKey)
       .then(() => this.route.navigate(['']))
       .catch((error) => {
         console.log(error);
